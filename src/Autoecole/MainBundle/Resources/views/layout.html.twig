@@ -1,0 +1,91 @@
+{# Autoecole/MainBundle/Resources/views/layout.html.twig #}
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>{% block title %}Ecole de la route{% endblock %}</title>
+
+  {% block stylesheets %}
+    {# On charge le CSS de bootstrap depuis le site directement pour avoir accès au glyphone #}    
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ asset('bundles/autoecole/css/style.css') }}" type="text/css" />   
+  {% endblock %}
+</head>
+
+<body>
+
+  <header>
+    {% block header %}
+      <div class="jumbotron">      
+        <img class="logo" src="{{ asset('bundles/autoecole/images/logoalpha.png') }}" alt="Meudon ecole de al route">       
+        <div class="zone_membre">          
+          <a href="{{ path('fos_user_registration_register') }}" target="_blank">Membre</a>
+        </div>
+        <ul class='nav_button'>
+          <li active ><a href="#accueil">Accueil</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contacts">Contacts</a></li>
+          <li><a href="#blog">Blog</a></li>          
+        </ul>                
+      </div>     
+    {% endblock %}
+  </header>  
+
+
+  <div class="autoecole">  
+
+    <section id="accueil">  
+      {% block accueil %}
+        <h2> Accueil: </h2>
+        {{ render(controller("AutoecoleMainBundle:Default:accueil")) }}
+      {% endblock %} 
+    </section>
+
+    <section id="services">
+      {% block services %}
+        <h2> Nos Services: </h2>
+        {{ render(controller("AutoecoleMainBundle:Default:services")) }}
+      {% endblock %}   
+    </section>   
+
+    <section id="carrousel">  
+      {% block carrousel %}      
+       {{ render(controller("AutoecoleMainBundle:Default:carrousel")) }}
+     {% endblock %} 
+   </section>
+  
+   <section id="contacts">
+    {% block contacts %}
+      <h2> Contacte nous: </h2>
+      {{ render(controller("AutoecoleMainBundle:Default:contacts")) }}
+    {% endblock %}    
+  </section>  
+
+  <section id="blog">
+    {% block blog %}
+      <h2> Ce que l'on dit de nous </h2>
+      {{ render(controller("AutoecoleMainBundle:Default:blog")) }}
+    {% endblock %} 
+  </section>  
+</div>
+
+
+<footer> 
+{% block footer %}      
+      {{ render(controller("AutoecoleMainBundle:Default:footer")) }}
+{% endblock %} 
+</footer>
+{% block javascripts %}
+  {# Ajoutez ces lignes JavaScript si vous comptez vous servir des fonctionnalités du bootstrap Twitter #}
+  <script src="{{ asset('bundles/autoecole/js/jquery.js') }}"></script>
+  <script src="{{ asset('bundles/autoecole/js/bootstrap.js') }}"></script>
+  <script src="{{ asset('bundles/autoecole/js/map_API.js') }}"></script>
+  <script src="{{ asset('bundles/autoecole/js/map.js') }}"></script>
+   <script src="{{ asset('bundles/autoecole/js/facebook-sdk.js') }}"></script>
+{% endblock %}
+
+</body>
+</html>

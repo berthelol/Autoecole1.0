@@ -1,0 +1,27 @@
+{#{% extends "AutoecoleMainBundle::layout.html.twig" %}#}
+
+{% block services %}
+<table class="services_prices">
+<tr>
+    <td>
+    	<h2 class="price_title">{{pricing[1].name}}<h2>
+    	<p class="price_total">{{pricing[1].price}}</p>
+    </td>
+    <td>
+    	<h2 class="price_title">{{pricing[2].name}}<h2>
+    	<p class="price_total">{{pricing[2].price}}</p>
+    </td>   
+  </tr>
+  <tr>
+    <td>
+    	<h2 class="price_title">{{pricing[3].name}}<h2>
+    	<p class="price_total">{{pricing[3].price}}</p>
+    </td>
+    <td>
+    	<h2 class="price_title">{{pricing[4].name}}<h2>
+    	<p class="price_total">{{pricing[4].price}}</p>
+    </td>    
+  </tr> 
+</table>
+
+{% endblock %}

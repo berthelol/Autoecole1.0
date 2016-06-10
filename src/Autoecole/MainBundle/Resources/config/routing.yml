@@ -1,0 +1,3 @@
+autoecole_main_homepage:
+    path:     /
+    defaults: { _controller: AutoecoleMainBundle:Default:index }
